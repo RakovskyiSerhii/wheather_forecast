@@ -13,4 +13,6 @@ class WeatherState with _$WeatherState {
   }) = _WeatherState;
 
   bool get isLoading => weatherList == null;
+
+  WeatherModel get todayWeather => weatherList!.first;
 }
