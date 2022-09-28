@@ -18,7 +18,7 @@ class WeatherBodyWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(state.model.name),
-            ElevatedButton(onPressed: onSearchClick, child: Text('Search')),
+            _buildSearchWidget(context),
             if (state.isLoading)
               CircularProgressIndicator()
             else
@@ -34,5 +34,9 @@ class WeatherBodyWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _buildSearchWidget(BuildContext context) {
+    return ElevatedButton(onPressed: onSearchClick, child: Text('Search'));
   }
 }
