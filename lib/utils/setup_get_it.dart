@@ -6,6 +6,7 @@ import 'package:weather_forecast/mapper/weather_mapper.dart';
 import 'package:weather_forecast/network/Repository.dart';
 import 'package:weather_forecast/network/api/autocomplete_api.dart';
 import 'package:weather_forecast/network/api/weather_api.dart';
+import 'package:weather_forecast/use_case/filter_weather_list_to_one_in_day_use_case.dart';
 import 'package:weather_forecast/use_case/get_weather_use_case.dart';
 import 'package:weather_forecast/use_case/search_city_use_case.dart';
 
@@ -42,5 +43,6 @@ class SetupGetIt {
   void _initUseCase() {
     getIt.registerFactory(() => GetWeatherUseCase(getIt.get(), getIt.get()));
     getIt.registerFactory(() => SearchCityUseCase(getIt.get(), getIt.get()));
+    getIt.registerFactory(() => FilterWeatherListToOneInDayUseCase());
   }
 }

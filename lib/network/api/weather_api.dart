@@ -10,7 +10,7 @@ abstract class WeatherApi {
   factory WeatherApi(Dio dio, {String baseUrl}) = _WeatherApi;
 
   @GET(
-      "timelines?location={latitude},{longitude}&fields=temperature&fields=weatherCode&units=metric&timesteps=1d&startTime=now&endTime=nowPlus5d&apikey=tiEgqCIRdJmnWhVIK91hrJnHeTtTWkx1")
+      "timelines?location={latitude},{longitude}&fields=temperature&fields=humidity&fields=windSpeed&fields=windDirection&fields=windGust&fields=pressureSeaLevel&fields=rainIntensity&fields=visibility&fields=weatherCode&units=metric&timesteps=1h&startTime=now&endTime=nowPlus7d&apikey=tiEgqCIRdJmnWhVIK91hrJnHeTtTWkx1")
   Future<WeatherResponseDto> search(
       @Path('latitude') double latitude, @Path('longitude') double longitude);
 }

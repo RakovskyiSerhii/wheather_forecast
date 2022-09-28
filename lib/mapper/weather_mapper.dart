@@ -12,6 +12,12 @@ class WeatherMapper extends BaseMapper<WeatherIntervalsDto, WeatherModel>
     return WeatherModel(
       dateTime: AppDateFormatter.apiDateFormat.parse(inModel.startTime),
       temperature: value.temperature,
+      humidity: value.humidity.toDouble(),
+      pressureSeaLevel: value.pressureSeaLevel,
+      visibility: value.visibility,
+      windDirection: value.windDirection,
+      windGust: value.windGust,
+      windSpeed: value.windSpeed,
       weatherConditions:
           WeatherConditionsExtension.fromCode(value.weatherCode.toString()),
     );

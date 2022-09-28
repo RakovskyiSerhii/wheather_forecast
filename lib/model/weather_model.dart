@@ -9,5 +9,11 @@ class WeatherModel with _$WeatherModel {
     required DateTime dateTime,
     required double temperature,
     required WeatherConditions weatherConditions,
+    required double pressureSeaLevel,
+    required double visibility,
+    required double windDirection,
+    required double windGust,
+    required double windSpeed,
+    required double humidity,
   }) = _WeatherModel;
 }
