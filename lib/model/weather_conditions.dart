@@ -135,6 +135,59 @@ extension WeatherConditionsExtension on WeatherConditions {
         return assets.icThunderstorm.image();
     }
   }
+
+  String get title {
+    switch(this){
+      case WeatherConditions.unknown:
+        return 'Unknown';
+      case WeatherConditions.clearSunny:
+        return 'Clear, Sunny, put on a cap';
+      case WeatherConditions.mostlyClear:
+        return 'Mostly clear';
+      case WeatherConditions.partlyCloudy:
+        return 'Partly cloudy';
+      case WeatherConditions.mostlyCloudy:
+        return 'Mostly cloudy';
+      case WeatherConditions.cloudy:
+        return 'Cloudy';
+      case WeatherConditions.fog:
+        return 'Fog';
+      case WeatherConditions.lightFog:
+        return 'Light fog';
+      case WeatherConditions.drizzle:
+        return 'Drizzle';
+      case WeatherConditions.rain:
+        return 'Rain, take an umbrella';
+      case WeatherConditions.lightRain:
+        return 'Light rain, take an umbrella';
+      case WeatherConditions.heavyRain:
+        return 'Heavy rain, take an umbrella';
+      case WeatherConditions.snow:
+        return 'Snow, put on felt boots';
+      case WeatherConditions.flurries:
+        return 'Flurries';
+      case WeatherConditions.lightSnow:
+        return 'Light snow, put on felt boots';
+      case WeatherConditions.heavySnow:
+        return 'seavy Snow, put on felt boots';
+      case WeatherConditions.freezingDrizzle:
+        return 'Freezing drizzle';
+      case WeatherConditions.freezingRain:
+        return 'OMG';
+      case WeatherConditions.lightFreezingRain:
+        return 'KURWA';
+      case WeatherConditions.heavyFreezingRain:
+        return 'PEZDA';
+      case WeatherConditions.icePellets:
+        return 'Ice pellets, hide';
+      case WeatherConditions.heavyIcePellets:
+        return 'Heavy ice pellets, тікай з села тобі пезда';
+      case WeatherConditions.lightIcePellets:
+        return 'Light ice pellets, ти накрив автомобіль, а то поїдеш на СТО';
+      case WeatherConditions.thunderstorm:
+        return 'Listening Image Dragon - Thunderstorm';
+    }
+  }
 }
 
 //       "0": "Unknown",

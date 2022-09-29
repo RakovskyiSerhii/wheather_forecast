@@ -1,6 +1,7 @@
 import 'package:weather_forecast/mapper/base_mapper.dart';
 import 'package:weather_forecast/model/weather_conditions.dart';
 import 'package:weather_forecast/model/weather_model.dart';
+import 'package:weather_forecast/model/wind_direction.dart';
 import 'package:weather_forecast/network/dto/weather/weather_intervals_dto.dart';
 import 'package:weather_forecast/utils/AppDateFormater.dart';
 
@@ -15,9 +16,10 @@ class WeatherMapper extends BaseMapper<WeatherIntervalsDto, WeatherModel>
       humidity: value.humidity.toDouble(),
       pressureSeaLevel: value.pressureSeaLevel,
       visibility: value.visibility,
-      windDirection: value.windDirection,
+      windDirectionDegree: value.windDirection,
       windGust: value.windGust,
       windSpeed: value.windSpeed,
+      windDirectionModel: WindDirectionExtension.fromDegrees(value.windDirection),
       weatherConditions:
           WeatherConditionsExtension.fromCode(value.weatherCode.toString()),
     );
