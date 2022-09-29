@@ -10,8 +10,10 @@ class WeatherMapper extends BaseMapper<WeatherIntervalsDto, WeatherModel>
   @override
   WeatherModel map(WeatherIntervalsDto inModel) {
     final value = inModel.values;
+    final date = AppDateFormatter.apiDateFormat.parse(inModel.startTime);
     return WeatherModel(
-      dateTime: AppDateFormatter.apiDateFormat.parse(inModel.startTime),
+      date: DateTime(date.year, date.month, date.day),
+      originalDate: AppDateFormatter.apiDateFormat.parse(inModel.startTime),
       temperature: value.temperature,
       humidity: value.humidity.toDouble(),
       pressureSeaLevel: value.pressureSeaLevel,
@@ -19,7 +21,8 @@ class WeatherMapper extends BaseMapper<WeatherIntervalsDto, WeatherModel>
       windDirectionDegree: value.windDirection,
       windGust: value.windGust,
       windSpeed: value.windSpeed,
-      windDirectionModel: WindDirectionExtension.fromDegrees(value.windDirection),
+      windDirectionModel:
+          WindDirectionExtension.fromDegrees(value.windDirection),
       weatherConditions:
           WeatherConditionsExtension.fromCode(value.weatherCode.toString()),
     );

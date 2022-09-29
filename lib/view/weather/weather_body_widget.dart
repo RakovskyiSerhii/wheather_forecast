@@ -86,7 +86,7 @@ class WeatherBodyWidget extends StatelessWidget {
 
   Text _date() {
     return Text(
-      '${AppDateFormatter.appFormat.format(state.todayWeather.dateTime)}',
+      '${AppDateFormatter.appFormat.format(state.todayWeather.originalDate)}',
       style: TextStyle(color: Colors.black54, fontSize: 36),
     );
   }
@@ -95,13 +95,13 @@ class WeatherBodyWidget extends StatelessWidget {
     return Column(
       children: [
         Text(
-          '${state.weatherList!.first.temperature.round()} Cº',
+          '${state.todayWeather.temperature.round()} Cº',
           style: TextStyle(
               color: Colors.black54, fontSize: 54, fontWeight: FontWeight.w600),
         ),
-        state.weatherList!.first.weatherConditions.icon,
+        state.todayWeather.weatherConditions.icon,
         Text(
-          '${state.weatherList!.first.weatherConditions.title}',
+          '${state.todayWeather.weatherConditions.title}',
           style: TextStyle(
             color: Colors.black54,
             fontSize: 36,
@@ -124,16 +124,14 @@ class WeatherBodyWidget extends StatelessWidget {
               size: 32,
             ),
             Text(
-              '${state.weatherList!.first.windSpeed.round()} m/s'
-              
-              ,
+              '${state.todayWeather.windSpeed.round()} m/s',
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 24,
               ),
             ),
             Text(
-              '${state.weatherList!.first.windDirectionModel.title} ',
+              '${state.todayWeather.windDirectionModel.title} ',
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 16,
@@ -150,7 +148,7 @@ class WeatherBodyWidget extends StatelessWidget {
               size: 32,
             ),
             Text(
-              '${state.weatherList!.first.humidity.round()}',
+              '${state.todayWeather.humidity.round()}',
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 24,
@@ -174,7 +172,7 @@ class WeatherBodyWidget extends StatelessWidget {
               size: 32,
             ),
             Text(
-              '${state.weatherList!.first.pressureSeaLevel.round()}',
+              '${state.todayWeather.pressureSeaLevel.round()}',
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 24,
@@ -198,7 +196,7 @@ class WeatherBodyWidget extends StatelessWidget {
               size: 32,
             ),
             Text(
-              '${state.weatherList!.first.visibility.round()}',
+              '${state.todayWeather.visibility.round()}',
               style: TextStyle(
                 color: Colors.black54,
                 fontSize: 24,
@@ -264,7 +262,7 @@ class WeatherBodyWidget extends StatelessWidget {
     );
   }
 
-  Column _weatherWeek() {
+  Widget _weatherWeek() {
     return Column(
       children: [
         ...state.weatherList!

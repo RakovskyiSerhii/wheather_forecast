@@ -8,11 +8,12 @@ part 'weather_state.freezed.dart';
 class WeatherState with _$WeatherState {
   WeatherState._();
   factory WeatherState({
-    List<WeatherModel>? weatherList,
+    List<List<WeatherModel>>? weatherList,
     required CityModel model,
   }) = _WeatherState;
 
   bool get isLoading => weatherList == null;
 
-  WeatherModel get todayWeather => weatherList!.first;
+  WeatherModel get todayWeather => weatherList!.first.reduce((value, element) =>
+      value.temperature > element.temperature ? value : element);
 }

@@ -6,10 +6,11 @@ part 'weather_model.freezed.dart';
 
 @freezed
 class WeatherModel with _$WeatherModel {
-  WeatherModel._(); 
-  
+  WeatherModel._();
+
   factory WeatherModel({
-    required DateTime dateTime,
+    required DateTime originalDate,
+    required DateTime date,
     required double temperature,
     required WeatherConditions weatherConditions,
     required double pressureSeaLevel,
